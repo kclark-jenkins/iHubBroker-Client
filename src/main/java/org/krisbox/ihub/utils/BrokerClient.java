@@ -1,10 +1,12 @@
 package org.krisbox.ihub.utils;
 
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+
 import java.util.Map;
 
-public interface BrokerClient extends iHubClient {
+public interface BrokerClient extends iHubClient, MqttCallback {
+    public void   createClient(     Map<String, Object> properties);
     public void   brokerConnect(    Map<String, Object> properties);
     public void   brokerDisconnect( Map<String, Object> properties);
-    public Object onMessageRecieved(Map<String, Object> properties);
-    public Object onError(          Map<String, Object> properties);
+    public void   sendMessage(      Map<String, Object> properties);
 }

@@ -3,7 +3,17 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+def sourceCompatibility = 1.5
+
+def pahoRepoURL = 'https://repo.eclipse.org/content/repositories/paho-releases/'
+
+def pahoName    = 'org.eclipse.paho.client.mqttv3'
+def pahoGroup   = 'org.eclipse.paho'
+def pahoVersion = '1.1.1'
+
+def log4jName    = 'log4j'
+def log4jGroup   = 'log4j'
+def log4jVersion = '1.2.17'
 
 repositories {
     mavenCentral()
@@ -11,4 +21,6 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: pahoGroup, name: pahoName, version: pahoVersion
+    compile group: log4jGroup, name: log4jName, version: log4jVersion
 }
